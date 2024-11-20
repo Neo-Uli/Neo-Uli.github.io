@@ -1,0 +1,111 @@
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <link rel="stylesheet" href="CSS/head&foot.css">
+    <link rel="stylesheet" href="CSS/carrusel.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<script>
+    function cambiarPestaña(page) {
+        window.location.href = page;
+    }
+</script>
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+                <img src="img/Logo.png" alt="Logo de la Empresa"> <!-- Reemplaza 'ruta/del/logo.png' con la ruta de tu logo -->
+            </a>
+        </div>
+        
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="cotizaC.html" class="cotizar ocultar">Cotizar</a></li>
+                <li><a href="citas.html" class="citas ocultar">Citas</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a class="noRegistrado" onClick="cambiarPestaña('login.html')" id="boton-inicio-sesion">Iniciar Sesión</a></li>
+                <li><a class="Registrado" onClick="cambiarPestaña('login.html')" id="boton-cierre-sesion">Cerrar Sesión</a></li>
+                <li><a class="Registrado" id="nombreUsuario">Hola</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+<div class="bod">
+    <h2 class="titulo">Promociones</h2>
+    <div class="container-carousel">
+        <div class="carruseles" id="slider">
+
+        </div>
+        <div class="btn-left"><i class='bx bx-chevron-left'></i></div>
+        <div class="btn-right"><i class='bx bx-chevron-right'></i></div>
+    </div>
+</div>
+<!--<br><br>
+<h2 class="titulo">Proyectos</h2>-->
+
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footerNav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+            </ul>
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy; 2024; Designed by <span class="designer">MegaTablaroca</span></p>
+        </div>
+    </div>
+</footer>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+    
+
+<!--CONEXION A FIREBASE-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+  
+
+<!--Mis Scripts-->
+<script src="JavaScript/conexion.js"></script>
+<script src="JavaScript/comprobar.js"></script>
+<script src="/JavaScript/carrusel.js"></script>
+
+</body>
+</html>
+
+
+
+<!--https://www.youtube.com/watch?v=Cp9aRIOTju4 min, 7:45 menu-->
+<!--https://www.youtube.com/watch?v=nkZz9DOBzBI&t=269s footer-->
+<!--https://www.youtube.com/watch?v=mgoNOkFGmto&t=27s 25:00 carrusel-->

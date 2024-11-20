@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de nuevos trabajadores</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <!--Mis Estilos-->
+    <link rel="stylesheet" href="CSS/agregarTrabajador.css">
+    <link rel="stylesheet" href="CSS/head&footAdmin.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="back-button" onclick="goToPage('menuA.html')">
+        <button>
+            <i class="fas fa-arrow-left"></i> Regresar
+        </button>
+    </div>  
+
+    <div class="header-container">
+        <img src="/img/Logo.png" alt="Logo de la Empresa">
+        <h1>Registro de nuevos trabajadores</h1>
+    </div>
+
+    <div class="header-right">
+        <div class="welcome-message" id="welcomeMessage">
+            <i class="fas fa-smile"></i> <!-- Icono de bienvenida -->
+                <span id="userName">Bienvenido, Usuario</span>
+        </div> <!-- Mensaje de bienvenida -->
+    </div> 
+  
+</header>
+
+
+<main>
+    <!-- Botón para abrir el modal de agregar trabajador -->
+    <div class="add-user-btn">
+        <button id="openModalBtn">
+            <i class="fa fa-user-plus"></i> Agregar Trabajador
+        </button>
+    </div>
+
+    <!-- Título de la tabla -->
+    <h2>Usuarios Registrados</h2>
+    
+    <!-- Tabla de usuarios registrados -->
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Tipo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="userList">
+            <!-- Aquí se llenará la tabla con JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Modal de registro/edición -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="registerForm">
+                <h3 id="modalTitle">Registrar nuevo trabajador</h3>
+                <input type="text" id="name" placeholder="Nombre" required>
+                <input type="email" id="email" placeholder="Correo" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <label>
+                    <input type="checkbox" id="isAdmin"> Dar privilegios de administrador
+                </label>
+                <button type="submit" id="submitButton">Registrar trabajador</button>
+                <div id="message"></div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 MEGA TABLAROCA. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Conexión a Firebase -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+
+<!-- Scripts -->
+<script src="JavaScript/conexion.js"></script>
+<script src="JavaScript/agregarTrabajador.js"></script>
+<script src="JavaScript/menuAdmin.js"></script>
+
+</body>
+</html>

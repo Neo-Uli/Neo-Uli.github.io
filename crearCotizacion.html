@@ -1,0 +1,232 @@
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizar</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="CSS/head&footAdmin.css">
+    <link rel="stylesheet" href="CSS/formularioAdmin.css">
+
+    <!--para convertir a PDF-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!--complemento para realizar tablas-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.11/jspdf.plugin.autotable.min.js"></script>
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!-- Header -->
+<header>
+    <div class="back-button" onclick="goToPage('menuA.html')">
+        <button>
+            <i class="fas fa-arrow-left"></i> Regresar
+        </button>
+    </div>
+    
+    <div class="header-container">
+        <img src="/img/Logo.png" alt="Logo de la Empresa">
+        <a class="logo">Cotización</a>
+    </div>
+        
+    <div class="header-right">
+        <div class="welcome-message" id="welcomeMessage">
+            <i class="fas fa-smile"></i> <!-- Icono de bienvenida -->
+            <span id="userName">Bienvenido, Usuario</span>
+        </div> <!-- Mensaje de bienvenida -->
+    </div>        
+</header>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<form id="cotizacionForm">
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" >
+
+    <label>El trabajo será para:</label><br>
+    <input type="checkbox" id="interior" name="area" value="Interior" checked> Interior<br>
+    <input type="checkbox" id="exterior" name="area" value="Exterior"> Exterior<br>
+
+<!-- Preguntas para el Interior -->
+<div id="interiorQuestions" class="hidden">
+    <label for="interiorArea">Metros para el área interior:</label>
+    <input type="number" id="interiorArea" name="interiorArea" min="0" value="0"><br>
+
+    <div class="accordion" id="interiorAccordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Seleccione producto para el área interior</span>
+            <span>▼</span>
+        </div>
+        <ul id="interiorMaterialList" class="product-list accordion-content"></ul>
+    </div>
+</div>
+
+<!-- Inputs ocultos para interior -->
+<input type="hidden" id="interiorMaterialListNombre">
+<input type="hidden" id="interiorMaterialListPrecio">
+
+
+<!-- Preguntas para el Exterior -->
+<div id="exteriorQuestions" class="hidden">
+    <label for="exteriorArea">Metros para el área exterior:</label>
+    <input type="number" id="exteriorArea" name="exteriorArea" min="0" value="0"><br>
+
+    <div class="accordion" id="exteriorAccordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Seleccione producto para el área exterior</span>
+            <span>▼</span>
+        </div>
+        <ul id="exteriorMaterialList" class="product-list accordion-content"></ul>
+    </div>
+</div>
+
+<!-- Inputs ocultos para exterior -->
+<input type="hidden" id="exteriorMaterialListNombre">
+<input type="hidden" id="exteriorMaterialListPrecio">
+
+    <!-- Ventanas -->
+    <label>¿Cuántas ventanas necesitará?</label>
+    <input type="number" id="ventanas" name="ventanas" min="0" value="0"><br>
+
+    <div class="accordion hidden" id="ventanaAccordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Seleccione producto para ventanas</span>
+            <span>▼</span> <!-- Indicador de desplegado -->
+        </div>
+        <ul id="ventanaMaterialList" class="product-list accordion-content"></ul>
+    </div>
+
+    <!-- Inputs ocultos para ventanas -->
+     <input type="hidden" id="ventanaMaterialListNombre">
+     <input type="hidden" id="ventanaMaterialListPrecio">
+
+
+    <!-- Puertas -->
+    <label>¿Cuántas puertas necesitará?</label>
+    <input type="number" id="puertas" name="puertas" min="0" value="0"><br>
+
+    <div class="accordion hidden" id="puertaAccordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Seleccione producto para puertas</span>
+            <span>▼</span>
+        </div>
+        <ul id="puertaMaterialList" class="product-list accordion-content"></ul>
+    </div>
+
+    <!-- Inputs ocultos para puertas -->
+     <input type="hidden" id="puertaMaterialSelectNombre">
+     <input type="hidden" id="puertaMaterialSelectPrecio">
+
+    <!-- Tomacorrientes -->
+    <label>¿Cuántos tomacorrientes necesitará?</label>
+    <input type="number" id="tomacorrientes" name="tomacorrientes" min="0" value="0"><br>
+    
+    <div class="accordion hidden" id="tomacorrienteAccordion">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>Seleccione producto para tomacorrientes</span>
+            <span>▼</span>
+        </div>
+        <ul id="tomacorrienteMaterial" class="product-list accordion-content"></ul>
+    </div>
+
+    <!-- Inputs ocultos para tomacorrientes -->
+     <input type="hidden" id="tomacorrienteMaterialSelectNombre">
+     <input type="hidden" id="tomacorrienteMaterialSelectPrecio">
+
+    <!-- Cálculos para perfil, cinta, cable, tornillos, etc. -->
+    <label>¿Cuántos metros de perfil?</label>
+    <input type="number" id="perfil" name="perfil" placeholder="Autocompleta"><br>
+
+    <label>¿Cuántos metros de cable?</label>
+    <input type="number" id="cable" name="cable" placeholder="Autocompleta"><br>
+
+    <label>¿Cuántos metros de perfacinta?</label>
+    <input type="number" id="cinta" name="cinta" placeholder="Autocompleta"><br>
+
+    <label>¿Cuántos tornillos?</label>
+    <input type="number" id="tornillos" name="tornillos" placeholder="Autocompleta"><br>
+
+    <label>¿Cuánto producto junteador?</label>
+    <input type="number" id="productoJuntas" name="productoJuntas" placeholder="Autocompleta"><br>
+
+    <label>¿Cuánto silicón?</label>
+    <input type="number" id="silicon" name="silicon" placeholder="Autocompleta"><br>
+
+    <button type="button" id="cotizarBtn">Cotizar</button>
+</form>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!--plantilla para cotizacion-->
+<div id="cotizacion" class="cotizacion-container hidden">
+    <!-- Encabezado con imagen -->
+     <div class="header-cotizacion">
+        <img src="/img/mg.png" alt="Encabezado MEGA" class="header-image">
+     </div>
+
+    <!-- Información del cliente y fecha de cotización -->
+    <div class="cliente-fecha">
+        <p><strong>Nombre del Cliente:</strong> <span id="nombreCliente"></span></p>
+        <p><strong>Fecha de la Cotización:</strong> <span id="fechaCotizacion"></span></p>
+        <p><strong>La cotización será válida hasta:</strong> <span id="fechaExpira"></span></p>
+    </div>
+
+    <!-- Sección para mostrar la cotización -->
+     <h2 class="cotizacion-titulo">Cotización</h2>
+     <div id="cotizacionDetalles" class="cotizacion-detalles"></div>
+
+    <!-- Pie de página con contactos -->
+     <div class="footer-container">
+        <div class="footer-content">
+            <!-- Imagen como pie de página -->
+            <img src="/img/mg-foot2.png" alt="Pie de página" class="footer-image">
+        </div>
+     </div>
+
+     <div class="button-group">
+        <button id="regresarBtn" class="boton-regresar">Regresar al formulario</button>
+        <button id="pdf" class="btn btn-confirm">Generar PDF</button>
+    </div>
+    
+
+
+
+</div>
+
+
+
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 MEGA TABLAROCA. Todos los derechos reservados.</p>
+</footer>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+    
+
+<!--CONEXION A FIREBASE-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+  
+
+
+
+
+<!--Mis Scripts-->
+<script src="JavaScript/conexion.js"></script>
+<script src="JavaScript/menuAdmin.js"></script>
+<script src="/JavaScript/ConvPDF.js"></script>
+<script src="/JavaScript/formularioAdmin.js"></script>
+
+</body>
+</html>

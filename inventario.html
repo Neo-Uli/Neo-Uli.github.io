@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <!-- Mis Estilos -->
+    <link rel="stylesheet" href="CSS/head&footAdmin.css">
+    <link rel="stylesheet" href="CSS/almacen.css">
+    
+    <!-- Iconos -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!--Para PDF-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!--Para QR-->
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <!--Escanear QR-->
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
+
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="back-button" onclick="goToPage('menuA.html')">
+        <button>
+            <i class="fas fa-arrow-left"></i> Regresar
+        </button>
+    </div>
+    
+    <div class="header-container">
+        <img src="/img/Logo.png" alt="Logo de la Empresa">
+        <a class="logo">Inventarios</a>
+    </div>
+        
+    <div class="header-right">
+        <div class="welcome-message" id="welcomeMessage">
+            <i class="fas fa-smile"></i> <!-- Icono de bienvenida -->
+            <span id="userName">Bienvenido, Usuario</span>
+        </div> <!-- Mensaje de bienvenida -->
+    </div>        
+</header>
+
+    <!-- Sección principal -->
+    <main>
+        <h1 class="titulo">Gestionar Almacenes</h1>
+
+        <div id="main-content">
+            <div id="almacen-form">
+                <input type="text" id="nombreAlmacen" placeholder="Nombre del Almacén">
+                <button id="agregarAlmacen">Agregar Almacén</button>
+            </div>
+        
+            <h2>Lista de Almacenes</h2>
+            <ul id="almacenes-lista"></ul>
+        </div>        
+
+        <!-- Vista del almacén que se muestra al dar clic en "Ver Almacén" -->
+        <div id="almacen-view" class="hidden">
+            <h2>Productos en el Almacén</h2>
+            <div id="productos-almacen"></div>
+            <button id="volver">Volver a la lista de almacenes</button>
+            <button id="escanearQR" class="btn-escanear">Escanear QR <i class="fa fa-qrcode"></i></button> <!-- Botón para escanear QR -->
+        </div>
+
+        <!-- Modal para modificar cantidad de productos -->
+        <div id="modal-modificar" class="mod hidden">
+            <div class="modal-mod">
+                <span class="close">&times;</span>
+                <h3>Modificar Producto</h3>
+                <label for="cantidadActual">Cantidad Actual:</label>
+                <input type="number" id="cantidadActual">
+                <label for="cantidadMaxima">Cantidad Máxima:</label>
+                <input type="number" id="cantidadMaxima">
+                <button id="guardarCambios">Guardar Cambios</button>
+            </div>
+        </div>
+        
+    </main>
+    <div id="help" class="container"></div>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!-- Footer -->
+<footer id="footer">
+    <p>&copy; 2024 MEGA TABLAROCA. Todos los derechos reservados.</p>
+</footer>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+
+    <!-- Conexión a Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+
+    <!-- Mis Scripts -->
+    <script src="JavaScript/conexion.js"></script>
+    <script src="JavaScript/almacen.js"></script>
+    <script src="/JavaScript/menuAdmin.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--TIPOGRAFIAS DE GOOGLE-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--ICONOS-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="assets/img/logo.png" rel="icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="CSS/login.css">
+    <title>Login Mega</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+</head>
+<body>
+
+    <div class="container-form register">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido</h2>
+                <p>Para unirte a nuestra comunidad, por favor inicia sesión con tus datos</p>
+                <input type="button" value="Iniciar Sesion" id="sign-in">
+                <br><br><p>-----------------O-----------------</p><br>
+                <input type="button" value="Continuar sin Registrarse" id="no-registro">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Crear una Cuenta</h2>
+                <!--<div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-facebook-circle'></i>
+                    <i class='bx bxl-instagram-alt'></i>
+                </div>
+                <p>o usa tu email para registrarte</p>-->
+                <form class="form" id="signup-form">
+                    <label>
+                        <i class='bx bx-user'></i>
+                        <input type="text" placeholder="Nombre completo" id="nombre">
+                    </label>
+                    <label>
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" placeholder="Correo electrónico" id="email">
+                    </label>
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" placeholder="Contraseña" id="pass">
+                    </label>
+                    <!-- Nuevo campo para teléfono -->
+                    <label>
+                        <i class='bx bx-phone'></i>
+                        <input type="tel" placeholder="Número de teléfono" id="telefono">
+                    </label>
+                    <input type="submit" value="Registrarse">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-form login hide">
+        <div class="information">
+            <div class="info-childs">
+                <h2>¡Bienvenido nuevamente!!</h2>
+                <p>Para unirte a nuestra comunidad, por favor inicia sesión con tus datos</p>
+                <input type="button" value="Registrarse" id="sign-up">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar Sesión</h2>
+                <!--<div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-facebook-circle'></i>
+                    <i class='bx bxl-instagram-alt'></i>
+                </div>
+                <p>o Iniciar Sesion con una cuenta</p>-->
+                <form class="form" id="signin-form">
+                    <label>
+                        <i class='bx bx-envelope'></i>
+                        <input type="email" placeholder="Correo electrónico" id="login-email">
+                    </label>
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" placeholder="Contraseña" id="login-pass">
+                    </label>
+                    <input type="submit" value="Iniciar Sesion">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    
+</body>
+
+<!--CONEXION A FIREBASE-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<!--MIS SCRIPTS-->
+<script src="JavaScript/conexion.js"></script>
+<script src="JavaScript/sesion.js"></script>
+
+</html>

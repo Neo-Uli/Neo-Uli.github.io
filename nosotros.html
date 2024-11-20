@@ -1,0 +1,118 @@
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <link rel="stylesheet" href="CSS/head&foot.css">
+    <link rel="stylesheet" href="CSS/nosotros.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<script>
+    function cambiarPestaña(page) {
+        window.location.href = page;
+    }
+</script>
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+                <img src="img/Logo.png" alt="Logo de la Empresa"> <!-- Reemplaza 'ruta/del/logo.png' con la ruta de tu logo -->
+            </a>
+        </div>
+        
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="cotizaC.html" class="cotizar ocultar">Cotizar</a></li>
+                <li><a href="citas.html" class="citas ocultar">Citas</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a class="noRegistrado" onClick="cambiarPestaña('login.html')" id="boton-inicio-sesion">Iniciar Sesión</a></li>
+                <li><a class="Registrado" onClick="cambiarPestaña('login.html')" id="boton-cierre-sesion">Cerrar Sesión</a></li>
+                <li><a class="Registrado" id="nombreUsuario">Hola</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+    <h1 class="titulo">Nosotros</h1>
+
+
+    <main>
+        <section class="intro">
+            <div class="texto">
+                <p>Nuestro compromiso con la excelencia y la calidad ha sido la piedra angular de nuestro éxito. Desde el principio, nos hemos dedicado a brindar soluciones innovadoras y servicios de primera clase a nuestros clientes. Cada proyecto, ya sea grande o pequeño, ha sido abordado con la misma pasión y dedicación, lo que nos ha permitido ganarnos la confianza de innumerables clientes satisfechos.</p>
+                <p>Nuestro alcance nacional nos ha permitido llevar nuestros servicios a todas las regiones de México. Ya sea en las bulliciosas calles de la Ciudad de México o en las pintorescas comunidades rurales, Mega Tablaroca está presente, brindando soluciones de calidad que transforman espacios y hacen realidad los sueños de nuestros clientes.</p>
+                <p>Mirando hacia el futuro, estamos emocionados de continuar nuestro viaje y seguir siendo un líder en la industria de la construcción en México. Con cada proyecto que emprendemos, reafirmamos nuestro compromiso con la calidad, la innovación y la satisfacción del cliente. En Mega Tablaroca, no solo construimos paredes, construimos sueños.</p>
+            </div>
+            <div class="imagen">
+                <img src="/img/img.png" alt="Proyecto" class="imagen-proyecto">
+            </div>
+        </section>
+
+       <!-- <section class="galeria">
+            <h2>Galería de Proyectos</h2>
+            <div class="imagenes">
+                <img src="/img/Mega1.jpg" alt="Proyecto 2" class="imagen-proyecto">
+                <img src="/img/Mega2.jpg" alt="Proyecto 3" class="imagen-proyecto">
+                <img src="/img/Mega3.jpg" alt="Proyecto 4" class="imagen-proyecto">
+            </div>
+        </section> -->
+    </main>
+
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footerNav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+            </ul>
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy; 2024; Designed by <span class="designer">MegaTablaroca</span></p>
+        </div>
+    </div>
+</footer>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+    
+
+<!--CONEXION A FIREBASE-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+  
+
+<!--Mis Scripts-->
+<script src="JavaScript/conexion.js"></script>
+<script src="JavaScript/comprobar.js"></script>
+<script src="/JavaScript/carrusel.js"></script>
+
+</body>
+</html>
+

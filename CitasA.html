@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Fechas Disponibles</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <!-- Mis Estilos -->
+    <link rel="stylesheet" href="CSS/head&footAdmin.css">
+    <link rel="stylesheet" href="CSS/calendario.CSS">
+
+    <!-- Iconos -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="back-button" onclick="goToPage('menuA.html')">
+        <button>
+            <i class="fas fa-arrow-left"></i> Regresar
+        </button>
+    </div>
+    
+    <div class="header-container">
+        <img src="/img/Logo.png" alt="Logo de la Empresa">
+        <a class="logo">Citas</a>
+    </div>
+        
+    <div class="header-right">
+        <div class="welcome-message" id="welcomeMessage">
+            <i class="fas fa-smile"></i> <!-- Icono de bienvenida -->
+            <span id="userName">Bienvenido, Usuario</span>
+        </div> <!-- Mensaje de bienvenida -->
+    </div>        
+</header>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+
+    <h2 class="titulo">Agregar o Eliminar Fechas Disponibles</h2>
+    <div id='calendario-admin'></div> <!-- Calendario del administrador -->
+    
+    <div class="button-container">
+        <button onclick="guardarFechasDisponibles()">Agregar Fechas Disponibles</button>
+        <button onclick="eliminarFechasSeleccionadas()">Eliminar Fechas Disponibles</button>
+    </div>
+
+
+
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 MEGA TABLAROCA. Todos los derechos reservados.</p>
+</footer>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Scripts -->
+    <script src="JavaScript/conexion.js"></script>
+    <script src="JavaScript/citasA.js"></script>
+    <script src="JavaScript/menuAdmin.js"></script>
+
+
+</body>
+</html>

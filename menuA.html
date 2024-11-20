@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="CSS/menuA.css">
+    <link rel="stylesheet" href="CSS/notificaciones.css">
+
+
+    <!-- Iconos -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <img src="/img/Logo.png" alt="Logo de la Empresa">
+            <a href="menuA.html" class="logo">MEGA TABLAROCA</a>
+        </div>
+        <div class="header-right">
+            <div class="welcome-message" id="welcomeMessage">Bienvenido, Usuario</div> <!-- Mensaje de bienvenida -->
+            <button id="logoutButton" onclick="logout()">Cerrar Sesión</button> <!-- Botón de cerrar sesión -->
+        </div>
+    </header>
+
+<!-- Icono de notificaciones -->
+<div class="notification-icon" onclick="toggleNotifications()">
+    <i class="fas fa-bell"></i>
+</div>
+
+<!-- Contenedor de notificaciones -->
+<div id="notificationDropdown" class="notification-dropdown hidden">
+    <h4>Notificaciones</h4>
+    <ul id="notificationList">
+        <!-- Aquí se agregarán las notificaciones dinámicamente -->
+    </ul>
+</div>
+
+
+    <h1>Panel de Administración</h1>
+
+    <div class="menu-container">
+        <div class="menu-box" onclick="goToPage('agregar_promo.html')">
+            <i class="fas fa-bullhorn"></i> <!-- Icono de promoción -->
+            <span>Promociones</span>
+        </div>
+        <div class="menu-box" onclick="goToPage('cotizaA.html')">
+            <i class="fas fa-file-invoice-dollar"></i> <!-- Icono de cotización -->
+            <span>Ver Cotizaciones</span>
+        </div>
+        <div class="menu-box" onclick="goToPage('categ&prod.html')">
+            <i class="fas fa-box"></i> <!-- Icono de producto -->
+            <span>Agregar Productos</span>
+        </div>
+        <div class="menu-box" onclick="goToPage('crearCotizacion.html')">
+            <i class="fas fa-calculator"></i> <!-- Icono de crear cotización -->
+            <span>Generar Cotización</span>
+        </div>
+        <div id="addUserOption" class="menu-box hidden" onclick="goToPage('agregarTrabajador.html')">
+            <i class='bx bxs-user'></i>
+            <span>Agregar Usuario</span>
+        </div>                   
+        <div id="addCitas" class="menu-box hidden" onclick="goToPage('CitasA.html')">
+            <i class='bx bxs-calendar'></i> <!-- Icono de opción -->
+            <span>Citas Disponibles</span>
+        </div>
+        <div class="menu-box" onclick="goToPage('inventario.html')">
+            <i class='bx bx-cabinet'></i> <!-- Icono de opción -->
+            <span>Inventario</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MEGA TABLAROCA. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Conexión a Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+
+    <!-- Mis Scripts -->
+    <script src="JavaScript/conexion.js"></script>
+    <script src="JavaScript/menuAdmin.js"></script>
+    <script src="JavaScript/notificaciones.js"></script>
+
+
+</body>
+</html>
+
+
+
+<!--https://www.youtube.com/watch?v=Cp9aRIOTju4 min, 7:45 menu-->
+<!--https://www.youtube.com/watch?v=nkZz9DOBzBI&t=269s footer-->
+<!--https://www.youtube.com/watch?v=mgoNOkFGmto&t=27s 25:00 carrusel-->

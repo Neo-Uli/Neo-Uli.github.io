@@ -1,0 +1,145 @@
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Cotización</title>
+    <link rel="icon" href="/img/Logo ico.png" type="image/png">
+
+    <link rel="stylesheet" href="CSS/head&foot.css">
+    <link rel="stylesheet" href="CSS/CotCli.CSS">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<script>
+    function cambiarPestaña(page) {
+        window.location.href = page;
+    }
+</script>
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+                <img src="img/Logo.png" alt="Logo de la Empresa"> <!-- Reemplaza 'ruta/del/logo.png' con la ruta de tu logo -->
+            </a>
+        </div>
+        
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html">Nosotros</a></li>
+                <li><a href="cotizaC.html" class="cotizar ocultar">Cotizar</a></li>
+                <li><a href="citas.html" class="citas ocultar">Citas</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a class="noRegistrado" onClick="cambiarPestaña('login.html')" id="boton-inicio-sesion">Iniciar Sesión</a></li>
+                <li><a class="Registrado" onClick="cambiarPestaña('login.html')" id="boton-cierre-sesion">Cerrar Sesión</a></li>
+                <li><a class="Registrado" id="nombreUsuario">Hola</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+
+<form id="cotizacionForm" onsubmit="event.preventDefault(); SendCotiza();">
+    <h2>Formulario de Cotización</h2>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" readonly>
+
+
+    <!-- Interior o Exterior -->
+    <label>El trabajo será para:</label>
+    <input type="checkbox" id="interior" name="area" value="Interior" checked> Interior <br>
+    <input type="checkbox" id="exterior" name="area" value="Exterior"> Exterior <br>
+
+
+    <!-- Preguntas para Interior -->
+     <div id="interiorQuestions">
+        <label for="interiorArea">Metros para el área interior:</label>
+        <input type="number" id="interiorArea" name="interiorArea" min="0" value="0"><br>
+     </div>
+
+    <!-- Preguntas para Exterior -->
+     <div id="exteriorQuestions" class="hidden">
+        <label for="exteriorArea">Metros para el área exterior:</label>
+        <input type="number" id="exteriorArea" name="exteriorArea" min="0" value="0"><br>
+     </div>
+
+    <!-- Ventanas -->
+    <label for="ventanas">¿Cuántas ventanas incluirá?</label>
+    <input type="number" id="ventanas" name="ventanas" min="0" value="0">
+
+    <!-- Puertas -->
+    <label for="puertas">¿Cuántas puertas incluirá?</label>
+    <input type="number" id="puertas" name="puertas" min="0" value="0">
+
+    <!-- Tomacorrientes -->
+    <label for="tomacorrientes">¿Cuántos tomacorrientes incluirá?</label>
+    <input type="number" id="tomacorrientes" name="tomacorrientes" min="0" value="0">
+
+    <!-- Tipo de Acabado -->
+    <label>Tipo de Acabado (puedes seleccionar más de uno):</label>
+    <label><input type="checkbox" name="acabado" value="pintura">Pintura</label>
+    <label><input type="checkbox" name="acabado" value="insonorizacion">Insonorización</label>
+    <label><input type="checkbox" name="acabado" value="impermeabilizacion">Impermeabilización</label>
+
+    <!-- Notas Adicionales -->
+    <label for="notas">Notas adicionales:</label>
+    <textarea id="notas" name="notas" rows="4" placeholder="Escribe aquí cualquier nota adicional..."></textarea>
+
+    <!-- Botón de Enviar -->
+    <button type="submit">Enviar</button>
+</form>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+<footer>
+    <div class="footerContainer">
+        <div class="socialIcons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footerNav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+            </ul>
+        </div>
+        <div class="footerBottom">
+            <p>Copyright &copy; 2024; Designed by <span class="designer">MegaTablaroca</span></p>
+        </div>
+    </div>
+</footer>
+
+<!----------------------------------------------------FIJO---------------------------------------------------->
+
+  
+    
+
+<!--CONEXION A FIREBASE-->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+  
+
+
+
+<!--Mis Scripts-->
+<script src="JavaScript/conexion.js"></script>
+<script src="JavaScript/comprobar.js"></script>
+<script src="JavaScript/enviarC.js" ></script>
+
+</body>
+
+</html>

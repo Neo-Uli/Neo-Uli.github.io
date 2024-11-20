@@ -1,0 +1,168 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del calendario */
+#calendario-admin {
+    border-radius: 10px;  /* Bordes redondeados */
+    overflow: hidden;     /* Evita que los bordes redondeados se vean mal */
+    box-shadow: 0 4px 15px rgba(36, 84, 108, 0.2); /* Sombra suave */
+    background-color: #d6e9ee; /* Fondo claro */
+    padding: 20px;       /* Espaciado interno */
+    margin: 0 auto;      /* Centrar el calendario */
+    max-width: 85%;      /* Ajustar margen lateral */
+    font-size: 15px;     /* Aumentar tamaño de la fuente general */
+}
+
+/* Estilos para los eventos */
+.fc-event {
+    border-radius: 6px;  /* Bordes más compactos para eventos */
+    transition: background-color 0.3s, transform 0.3s; /* Suavizar la transición */
+    color: white; /* Texto blanco para mejor legibilidad */
+    padding: 5px; /* Espaciado reducido para los eventos */
+    font-size: 14px; /* Tamaño de texto aumentado */
+}
+
+/* Efecto hover para eventos */
+.fc-event:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    background-color: #23444d; /* Color más oscuro al hacer hover */
+}
+
+/* Estilos para los botones de agregar y eliminar fechas */
+button {
+    background-color: #107da2; /* Color principal del botón */
+    color: white;              /* Texto en blanco */
+    border: none;              /* Sin borde */
+    border-radius: 6px;        /* Bordes redondeados */
+    padding: 12px 25px;        /* Espaciado aumentado */
+    font-size: 14px;           /* Aumentar tamaño de la fuente */
+    cursor: pointer;           /* Cambiar el cursor al pasar el mouse */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    margin: 10px;              /* Espaciado entre botones */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para darle profundidad */
+}
+
+button:hover {
+    background-color: #24546c; /* Color más oscuro al pasar el mouse */
+    transform: translateY(-1px); /* Efecto de elevación reducido */
+}
+
+/* Centrar los botones debajo del calendario */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    margin-top: 20px;        /* Separar un poco del calendario */
+}
+
+/* Estilos para las alertas */
+.alert {
+    padding: 10px;
+    background-color: #23444d; /* Color fuerte para las alertas */
+    color: white;
+    border-radius: 6px; /* Bordes redondeados */
+    margin-top: 10px;   /* Espaciado superior */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle enfoque */
+    font-weight: bold;  /* Texto en negrita */
+    max-width: 85%;     /* Ajustar el tamaño para mayor compacidad */
+    font-size: 14px;    /* Tamaño de texto aumentado */
+}
+
+/* Estilos para las etiquetas de "Disponible" */
+.fc-event[data-status='available'] {
+    background-color: #28a745; /* Verde más vivo */
+    border: 1px solid #155724; /* Borde verde oscuro */
+    border-radius: 6px;        /* Bordes compactos */
+    margin: 3px 0;             /* Margen reducido para separar eventos */
+}
+
+/* Estilos para las etiquetas de "Seleccionada para agregar" */
+.fc-event[data-status='to-add'] {
+    background-color: #ffca28; /* Amarillo vivo para destacar */
+    border: 1px solid #b38900; /* Borde amarillo oscuro */
+    border-radius: 6px;        /* Bordes compactos */
+    margin: 3px 0;             /* Margen reducido para separar eventos */
+}
+
+/* Estilos para las etiquetas de "Seleccionada para eliminar" */
+.fc-event[data-status='to-remove'] {
+    background-color: #e74c3c; /* Rojo vivo */
+    border: 1px solid #c0392b; /* Borde rojo oscuro */
+    border-radius: 6px;        /* Bordes compactos */
+    margin: 3px 0;             /* Margen reducido para separar eventos */
+}
+
+/* Ajustes adicionales para reducir el tamaño general del calendario */
+.fc-toolbar {
+    margin-bottom: 10px; /* Reducir el margen inferior */
+}
+
+.fc-header-toolbar .fc-button {
+    padding: 8px 12px;  /* Botones más compactos */
+    font-size: 14px;    /* Tamaño de fuente ligeramente aumentado */
+}
+
+.fc-view-container {
+    margin-bottom: 15px; /* Margen inferior reducido */
+}
+
+.fc-dayGrid-view .fc-day-top {
+    padding: 6px;        /* Ajustar padding de los días */
+}
+
+/* Estilos adicionales para la tipografía general */
+body, button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía moderna */
+    line-height: 1.1; /* Altura de línea compacta */
+}
+
+/* Estilo para el título */
+.titulo {
+    font-size: 24px; /* Tamaño de fuente más grande */
+    color: #24546c; /* Color que combina con el esquema del calendario */
+    text-align: center; /* Centrar el título */
+    font-weight: bold; /* Negrita para destacar */
+    margin-top: 20px; /* Espaciado superior */
+    margin-bottom: 20px; /* Espaciado inferior */
+    letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    border-bottom: 2px solid #82b8c8; /* Línea decorativa debajo */
+    padding-bottom: 10px; /* Espacio debajo del título */
+    max-width: 85%; /* Ajustar el ancho máximo */
+    margin-left: auto;
+    margin-right: auto; /* Centrar horizontalmente */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    background-color: #d6e9ee; /* Fondo suave que coincide con el calendario */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px 0; /* Espaciado interno */
+}
+
+
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Menor espaciado en pantallas pequeñas */
+    }
+
+    button {
+        font-size: 14px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        padding: 8px 15px; /* Menor espaciado interno */
+    }
+
+    #calendario-admin {
+        padding: 10px; /* Menor espaciado interno en el contenedor del calendario */
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        width: 100%; /* Botones ocupan todo el ancho en pantallas muy pequeñas */
+        margin: 10px 0; /* Espaciado vertical entre botones */
+    }
+}

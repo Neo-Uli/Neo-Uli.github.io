@@ -1,0 +1,115 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    min-height: 19vh; /* Hace que el contenedor principal ocupe al menos la altura de la ventana */
+}
+
+/* Header */
+header {
+    background-color: #107da2;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex-wrap: relative;
+}
+
+/* Logo y nombre del sitio */
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre el logo y el nombre */
+}
+
+header img {
+    height: 50px;
+    width: auto;
+}
+
+.logo {
+    font-size: 1.8rem; 
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para el contenedor del encabezado derecho (mensaje y botón) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre el mensaje y el botón */
+    flex-wrap: wrap;
+}
+
+/* Estilo para el mensaje de bienvenida */
+.welcome-message {
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el icono y el texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
+}
+
+.welcome-message:hover {
+    transform: translateY(-2px); /* Efecto de elevación al pasar el cursor */
+}
+
+.welcome-message i {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* Botón de regresar (ajustando para usar la paleta) */
+.back-button button {
+    background-color: #24546c; /* Usando el mismo color base */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.back-button button i {
+    font-size: 18px;
+}
+
+.back-button button:hover {
+    background-color: #23444d; /* Color hover más oscuro */
+}
+
+/*################################################################################################*/
+/* Footer */
+/* Estilo para el footer */
+footer {
+    margin-top: 20px; /* Asegurar espacio entre el contenedor y el footer */
+    padding: 20px; /* Aumentar el padding para más espacio interno */
+    background-color: #1c3a4d; /* Un tono más oscuro para el fondo del footer */
+    color: #ffffff; /* Texto blanco para mayor legibilidad */
+    text-align: center; /* Centrar el texto en el footer */
+    border-top: 4px solid #7dc8e3; /* Línea superior del footer con un grosor mayor */
+    border-radius: 5px; /* Bordes redondeados en la parte superior */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para un efecto de profundidad */
+}
+
+footer p {
+    margin: 0;
+    font-size: 15px; /* Aumentar ligeramente el tamaño de la fuente */
+    line-height: 1.5; /* Mejorar la legibilidad del texto */
+}

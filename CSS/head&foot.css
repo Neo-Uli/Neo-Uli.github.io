@@ -1,0 +1,132 @@
+/* Estilos para el Header */
+header {
+    background-color: #107da2; /* Color de fondo del header */
+    color: white; /* Color del texto */
+    padding: 20px 0; /* Espaciado en la parte superior e inferior */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre logo y navegación */
+    align-items: center; /* Centrar elementos verticalmente */
+    padding: 0 20px; /* Espaciado lateral */
+}
+
+.logo {
+    font-size: 24px; /* Tamaño del texto del logo */
+    font-weight: bold; /* Resaltar el texto del logo */
+    color: #d6e9ee; /* Color del logo */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.logo-container img {
+    height: 50px; /* Ajusta la altura del logo según tus necesidades */
+    width: auto; /* Mantiene la proporción del logo */
+}
+
+.navbar ul {
+    list-style: none; /* Quitar estilo de lista */
+    padding: 0; /* Quitar padding */
+    display: flex; /* Mostrar elementos en línea */
+}
+
+.navbar li {
+    margin: 0 10px; /* Espaciado horizontal entre elementos */
+    position: relative; /* Para efectos de pseudo-elementos */
+}
+
+.navbar a {
+    color: #d6e9ee; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s, transform 0.3s; /* Transición suave para el color y tamaño */
+    padding: 8px 12px; /* Espaciado alrededor del texto */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.navbar a:hover {
+    color: #82bbd4; /* Color al pasar el mouse */
+    transform: scale(1.1); /* Aumentar el tamaño ligeramente al pasar el mouse */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente al pasar el mouse */
+}
+
+.ocultar {
+    display: none; /* Ocultar elementos */
+}
+
+.Registrado, .noRegistrado {
+    transition: opacity 0.3s; /* Transición suave para opacidad */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilos para el Footer */
+footer {
+    background-color: #107da2; /* Color de fondo del footer */
+    color: white; /* Color del texto */
+    padding: 20px 0; /* Espaciado en la parte superior e inferior */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center; /* Centrar elementos horizontalmente */
+    text-align: center; /* Centrar texto */
+}
+
+.socialIcons {
+    margin-bottom: 15px; /* Espacio debajo de los íconos sociales */
+}
+
+.socialIcons a {
+    color: white; /* Color de los íconos sociales */
+    margin: 0 10px; /* Espaciado horizontal entre íconos */
+    font-size: 24px; /* Tamaño de los íconos */
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+.socialIcons a:hover {
+    color: #d6e9ee; /* Color al pasar el mouse */
+}
+
+.footerNav {
+    margin-bottom: 15px; /* Espacio debajo del menú de navegación */
+}
+
+.footerNav ul {
+    list-style: none; /* Quitar estilo de lista */
+    padding: 0; /* Quitar padding */
+    display: flex; /* Mostrar elementos en línea */
+}
+
+.footerNav li {
+    margin: 0 15px; /* Espaciado horizontal entre elementos */
+}
+
+.footerNav a {
+    color: #d6e9ee; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+.footerNav a:hover {
+    color: #82bbd4; /* Color al pasar el mouse */
+}
+
+.footerBottom {
+    margin-top: 15px; /* Espacio encima del texto de copyright */
+}
+
+.footerBottom p {
+    margin: 0; /* Quitar margen */
+}
+
+.designer {
+    font-weight: bold; /* Resaltar el texto del diseñador */
+    color: #82b8c8; /* Color para el diseñador */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.ocultar {
+    display: none;
+}

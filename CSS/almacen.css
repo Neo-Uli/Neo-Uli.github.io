@@ -1,0 +1,675 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilo para el título */
+.titulo {
+    font-size: 22px; /* Tamaño de fuente más grande */
+    color: #24546c; /* Color que combina con el esquema del calendario */
+    text-align: center; /* Centrar el título */
+    font-weight: bold; /* Negrita para destacar */
+    margin-top: 20px; /* Espaciado superior */
+    margin-bottom: 20px; /* Espaciado inferior */
+    letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    border-bottom: 2px solid #82b8c8; /* Línea decorativa debajo */
+    padding-bottom: 10px; /* Espacio debajo del título */
+    max-width: 85%; /* Ajustar el ancho máximo */
+    margin-left: auto;
+    margin-right: auto; /* Centrar horizontalmente */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    background-color: #d6e9ee; /* Fondo suave que coincide con el calendario */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px 0; /* Espaciado interno */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilos para el contenedor del modal */
+.productos-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 84, 108, 0.8); /* Fondo semitransparente acorde a la paleta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Estilos para la ventana del catálogo */
+.productos-catalogo {
+    background-color: #d6e9ee; /* Color de fondo claro */
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 850px;
+    width: 90%;
+    max-height: 85%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+}
+
+/* Estilo de la cuadrícula de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Diseño responsive */
+    gap: 20px;
+}
+
+/* Estilo para cada producto */
+.producto-item {
+    text-align: center;
+    border: 1px solid #82b8c8;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+}
+
+.producto-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.producto-item img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* Botones y campo de unidades */
+.producto-item input {
+    width: 90px;
+    padding: 8px;
+    margin: 10px 0;
+    text-align: center;
+    border: 1px solid #82bbd4;
+    border-radius: 5px;
+    background-color: #d6e9ee;
+    color: #23444d;
+    font-weight: bold;
+}
+
+/* Estilo de los botones de agregar */
+.producto-item button {
+    background-color: #107da2; /* Botón principal */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.producto-item button:hover {
+    background-color: #24546c;
+}
+
+/* Botón para cerrar el modal */
+.cerrar-modal {
+    background-color: #dc3545; /* Rojo para cerrar */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.cerrar-modal:hover {
+    background-color: #c82333;
+}
+
+/* Producto inactivo (ya agregado al almacén) */
+.producto-item.inactivo {
+    opacity: 0.6;
+    pointer-events: none; /* Deshabilita la interacción */
+    background-color: #e0e0e0;
+}
+
+.producto-item.inactivo button {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+/* Estilos para el catálogo de productos agregados en el almacén */
+.almacen-container {
+    padding: 25px;
+    background-color: #e1f5f9; /* Color de fondo suave acorde al esquema */
+    max-width: 1200px;
+    margin: 30px auto; /* Aumentamos el margen superior e inferior */
+    border-radius: 15px; /* Bordes redondeados para el contenedor */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil para resaltar el contenedor */
+    border: 1px solid #82b8c8; /* Bordes acorde al esquema */
+}
+
+.almacen-catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.almacen-item {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #82b8c8;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.almacen-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.almacen-item img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.almacen-item button {
+    margin-top: 15px;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.almacen-item .cantidad-producto {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #23444d;
+}
+
+/* Botones para modificar y eliminar */
+.almacen-item .btn-eliminar {
+    background-color: #dc3545; /* Rojo */
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.almacen-item .btn-eliminar:hover {
+    background-color: #c82333; /* Más oscuro */
+} 
+
+.almacen-item .btn-modificar {
+    background-color: #107da2; /* Azul para modificar */
+    color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.almacen-item .btn-modificar:hover {
+    background-color: #23444d; /* Más oscuro */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilos para el contenido principal */
+#main-content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+/* Estilos para el input de nombre del almacén */
+#nombreAlmacen {
+    width: calc(100% - 130px); /* Espacio para el botón */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+/* Estilos para el botón de agregar almacén */
+#agregarAlmacen {
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#agregarAlmacen:hover {
+    background-color: #45a049; /* Color verde oscuro al pasar el mouse */
+}
+
+/* Estilos para la lista de almacenes */
+h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+/* Contenedor de la lista de almacenes */
+#almacenes-lista {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Estilo para cada elemento de la lista */
+#almacenes-lista li {
+    display: flex; /* Flexbox para alinear texto y botones */
+    justify-content: space-between; /* Espaciado entre nombre del almacén y botones */
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+}
+
+/* Ajuste del texto del almacén */
+.almacen-nombre {
+    flex-grow: 1;
+    max-width: 60%; /* Limitar el tamaño del texto */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Cortar el texto con puntos suspensivos si es muy largo */
+}
+
+/* Contenedor de los botones */
+.almacen-botones {
+    display: flex;
+    gap: 10px; /* Espaciado entre los botones */
+}
+
+/* Estilo de los botones dentro de la lista */
+#almacenes-lista button {
+    background-color: #7dc8e3; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Botón de agregar productos */
+#almacenes-lista button:hover {
+    background-color: #107da2; /* Cambiar color al pasar el mouse */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilos para el modal de modificación de cantidad */
+.mod {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: 'Roboto', sans-serif; /* Asegúrate de usar la fuente general del sitio */
+}
+
+/* Contenido del modal */
+.modal-mod {
+    background-color: #f8f9fa; /* Fondo claro que combine con el tema */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15); /* Sombra más ligera */
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Título del modal */
+.modal-mod h2 {
+    margin: 0 0 20px;
+    font-size: 22px;
+    color: #343a40; /* Color oscuro para el título */
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Estilo para las etiquetas de entrada */
+.modal-mod label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 15px;
+    color: #495057; /* Gris oscuro para las etiquetas */
+}
+
+/* Estilo para los inputs */
+.modal-mod input[type="number"] {
+    width: 93%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.modal-mod input[type="number"]:focus {
+    border-color: #80bdff; /* Color de borde al enfocar */
+    outline: none;
+}
+
+/* Estilo para los botones */
+.modal-mod button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Color azul acorde al tema */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s; /* Transiciones suaves */
+}
+
+.modal-mod button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Botón para cerrar el modal */
+.modal-mod .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6c757d; /* Color gris para el icono de cerrar */
+}
+
+.modal-mod .close:hover {
+    color: #dc3545; /* Rojo al pasar el mouse */
+}
+
+/* Estilos para ocultar o mostrar la sección del catálogo del almacén */
+.hidden {
+    display: none;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Más columnas en pantallas pequeñas */
+    }
+
+    .almacen-item {
+        width: 100%; /* Ocupa el 100% del contenedor en pantallas pequeñas */
+    }
+
+    .modal-mod {
+        max-width: 90%; /* Asegura que el modal ocupe el 90% en pantallas pequeñas */
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilo del contenedor para el input y el botón */
+#almacen-form {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Alinear verticalmente en el centro */
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+/* Estilo para el campo de texto */
+#nombreAlmacen {
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde ligero */
+    border-radius: 4px; /* Bordes redondeados */
+    flex: 1; /* Tomar el espacio restante */
+    margin-right: 10px; /* Espacio a la derecha */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilo del botón */
+#agregarAlmacen {
+    background-color: #007BFF; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+/* Cambiar color de fondo al pasar el mouse */
+#agregarAlmacen:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+/* Botón para ver el almacén */
+.btn-ver-almacen {
+    background-color: #007bff; /* Color azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.btn-ver-almacen:hover { /* Estilo para hover */
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+/* Botón para eliminar */
+.btn-eliminar {
+    background-color: #dc3545; /* Color rojo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s; /* Transición para el color de fondo */
+}
+
+.btn-eliminar:hover { /* Estilo para hover */
+    background-color: #c82333; /* Color más oscuro al pasar el mouse */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*DENTRO DEL ALMACEN*/
+.btn-cerrar-almacen,
+.btn-generar-tickets {
+    display: flex; /* Usar flexbox para centrar el ícono y el texto */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+    box-sizing: border-box; /* Incluir padding y borde en el tamaño total */
+    flex: 1; /* Permitir que los botones crezcan para ocupar el mismo espacio */
+    margin: 0 5px; /* Espacio entre botones */
+}
+
+/* Estilos específicos para el botón de cerrar almacén */
+.btn-cerrar-almacen {
+    background-color: #ff4d4d; /* Color de fondo rojo */
+    color: white; /* Color del texto blanco */
+}
+
+.btn-cerrar-almacen:hover {
+    background-color: #ff1a1a; /* Cambiar a un rojo más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
+/* Estilos específicos para el botón de generar tickets */
+.btn-generar-tickets {
+    background-color: #007BFF; /* Color de fondo azul */
+    color: white; /* Color del texto */
+}
+
+.btn-generar-tickets:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+}
+
+/* Espaciado entre el ícono y el texto */
+.btn-cerrar-almacen i,
+.btn-generar-tickets i {
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+}
+
+/* Tamaño del ícono para generar tickets */
+.btn-generar-tickets i {
+    font-size: 18px; /* Tamaño del ícono */
+}
+
+/* Contenedor para los botones */
+.contenedor-botones {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: space-between; /* Espacio entre los botones */
+    margin: 20px 0; /* Espaciado vertical */
+}
+
+.btn-escanear-qr {
+    display: flex; /* Usar flexbox para centrar el ícono y el texto */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente el contenido */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+    background-color: #28a745; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    flex: 1; /* Permitir que el botón crezca para ocupar el mismo espacio */
+    margin: 0 5px; /* Espacio entre botones */
+}
+
+.btn-escanear-qr:hover {
+    background-color: #218838; /* Color más oscuro al pasar el ratón */
+}
+
+.btn-escanear-qr i {
+    margin-right: 5px; /* Espacio entre el ícono y el texto */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posiciona el modal relativo a la pantalla */
+    z-index: 1000; /* Asegura que esté en el frente */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrando completamente el modal */
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border: none;
+    width: 90%;
+    max-width: 600px; /* Ancho máximo del modal */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center; /* Centrar el contenido dentro del modal */
+}
+
+.qr-result img {
+    width: 250px; /* Tamaño de la imagen más grande */
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.close-button {
+    display: none; /* Oculto inicialmente */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+}
+
+.btn-detener {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-detener:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.btn-continuar {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-continuar:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+

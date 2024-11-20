@@ -1,0 +1,321 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+/*################################################################################################*/
+/* Contenedor de búsqueda */
+.search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #d6e9ee;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="date"] {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #82b8c8;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    border-color: #107da2;
+}
+
+.search-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #107da2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #23444d;
+}
+
+/*################################################################################################*/
+/* Contenedor de cotizaciones */
+.cotizaciones-container {
+    padding: 20px; /* Aumentar el padding para mejor espaciado */
+    margin: 20px auto; /* Margen superior e inferior */
+    width: 95%; /* Aumentar el ancho al 95% */
+    max-width: 1200px; /* Ampliar el ancho máximo del contenedor */
+    background-color: #ffffff; /* Fondo blanco para un aspecto limpio */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+/* Estilo de la tabla */
+.cotizaciones-container table {
+    width: 100%; /* Mantener el 100% del contenedor */
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    border-radius: 8px; /* Bordes redondeados en la tabla */
+    overflow: hidden; /* Evitar desbordamiento */
+}
+
+.cotizaciones-container table, th, td {
+    border: 1px solid #82bbd4; /* Borde claro */
+}
+
+th, td {
+    padding: 15px; /* Aumentar el padding para celdas */
+    text-align: left;
+    font-size: 16px; /* Tamaño de fuente más legible */
+}
+
+/* Encabezados */
+th {
+    background-color: #7dc8e3; /* Fondo de encabezado */
+    color: #23444d; /* Color de texto en el encabezado */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Celdas de la tabla */
+td {
+    background-color: #f9f9f9; /* Fondo claro en las celdas */
+}
+
+/* Fila par */
+.cotizaciones-container table tr:nth-child(even) {
+    background-color: #d6e9ee; /* Color de fondo para filas pares */
+}
+
+/* Fila activa al pasar el mouse */
+.cotizaciones-container table tr:hover {
+    background-color: #b0e0f2; /* Color al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+/*################################################################################################*/
+/* Estilo del checkbox */
+.cotizaciones-container table input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #107da2;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.cotizaciones-container table input[type="checkbox"]:hover {
+    transform: scale(1.1);
+}
+
+/*################################################################################################*/
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurecer más el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(5px); /* Añadir desenfoque de fondo */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px; /* Reducir padding para hacer el modal más compacto */
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px; /* Reducir el ancho máximo del modal */
+    text-align: left;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.4s ease;
+    position: relative;
+    overflow: hidden; /* Evitar el desbordamiento */
+}
+
+/* Efecto de sombra suave al entrar */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#solicitud-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px; /* Reducir el espacio entre los elementos */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+#solicitud-content p {
+    margin: 0;
+    padding: 10px; /* Reducir el padding de los párrafos */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+}
+
+#solicitud-content p:hover {
+    background-color: #eaeaea; /* Cambio de fondo al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+}
+
+#solicitud-content p strong {
+    color: #107da2;
+    font-weight: bold;
+}
+
+
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px; /* Tamaño más acorde con el diseño */
+    font-weight: bold;
+    color: #ffffff; /* Color de texto blanco para mayor contraste */
+    background-color: #107da2; /* Color de fondo consistente con la paleta */
+    border: none; /* Eliminar el borde */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidad */
+}
+
+.close:hover {
+    background-color: #ff4444; /* Color de fondo al pasar el mouse */
+    color: #fff; /* Asegurarse de que el texto sea blanco */
+    transform: scale(1.1); /* Efecto de escala más sutil */
+}
+
+
+/*################################################################################################*/
+
+/* Estilos de botones */
+.styled-button {
+    background-color: #24546c; /* Color base */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+    background-color: #23444d; /* Color hover más oscuro */
+}
+
+/* Botón de solicitud */
+.solicitud-button {
+    background-color: #28a745; /* Verde para solicitud */
+}
+
+.solicitud-button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+
+/* Botón para PDF */
+.pdf-button {
+    background-color: #ffc107; /* Amarillo para PDF */
+}
+
+.pdf-button:hover {
+    background-color: #e0a800; /* Amarillo más oscuro al pasar el mouse */
+}
+
+
+.hidden{
+    display: none;
+}
+
+/* Responsivo para pantallas más pequeñas */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-message {
+        font-size: 0.9rem;
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .back-button button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .modal-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #solicitud-content {
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    input[type="text"], input[type="date"] {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .styled-button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+}

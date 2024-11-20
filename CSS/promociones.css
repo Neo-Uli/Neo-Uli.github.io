@@ -1,0 +1,248 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+/*################################################################################################*/
+/* Estilos para los botones */
+.button-container {
+    padding: 20px; /* Espacio interno para el contenedor de botones */
+}
+
+button {
+    background-color: #7dc8e3; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 12px 20px; /* Espaciado interno del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s; /* Transiciones para efectos */
+    margin: 0px 0; /* Espacio superior e inferior entre botones y otros elementos */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+button:hover {
+    background-color: #82bbd4; /* Color del botón al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+}
+
+/* Estilo para iconos en los botones */
+button i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+/* Estilo específico para los botones de agregar */
+#agregarCategoriaBtn {
+    background-color: #107da2; /* Color específico para el botón de agregar categoría */
+}
+
+#agregarProductoBtn {
+    background-color: #107da3; /* Color específico para el botón de agregar producto */
+}
+
+
+/*################################################################################################*/
+/* Contenedor para la búsqueda y el filtro */
+.busqueda-filtro-container {
+    display: flex; /* Usar flexbox para alinear en fila */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinear verticalmente */
+    margin: 20px 0; /* Espacio superior e inferior */
+    padding: 0 20px; /* Espacio lateral para evitar que se pegue a los bordes */
+}
+
+/* Estilos para el campo de búsqueda */
+input[type="text"]#buscarNombre {
+    border: 1px solid #82bbd4; /* Borde igual que otros campos */
+    padding: 12px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 60%; /* Ajustar ancho del campo de búsqueda */
+    transition: border-color 0.3s; /* Transición al enfocar */
+    font-size: 16px; /* Tamaño de fuente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+input[type="text"]#buscarNombre:focus {
+    border-color: #107da2; /* Cambio de color al enfocar */
+    outline: none; /* Quitar el borde de enfoque predeterminado */
+}
+
+/* Estilos para el filtro por categoría */
+select {
+    padding: 12px 15px; /* Espaciado interno */
+    border: 1px solid #82bbd4; /* Borde del campo */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 35%; /* Ajustar ancho del select */
+    font-size: 16px; /* Tamaño de fuente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+/* Estilo al enfocar el filtro */
+select:focus {
+    border-color: #107da2; /* Cambio de color al enfocar */
+    outline: none; /* Quitar el borde de enfoque predeterminado */
+}
+
+/*################################################################################################*/
+/* Catalogo */
+h1 {
+    margin-top: 20px; /* Espacio superior */
+}
+
+/* Estilos para el catálogo de productos */
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Espacio entre los productos */
+    margin: 25px 60px; /* Margen superior e inferior, y margen ajustado en los lados */
+}
+
+.producto {
+    background-color: #ffffff; /* Fondo blanco para cada producto */
+    border: 1px solid #82bbd4; /* Borde del producto */
+    border-radius: 8px; /* Esquinas redondeadas */
+    padding: 15px; /* Espaciado interno */
+    width: calc(21% - 19px); /* Ancho ajustado para una mejor distribución */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    position: relative; /* Posicionamiento relativo para los iconos */
+    transition: transform 0.2s; /* Transición suave */
+}
+
+.producto:hover {
+    transform: translateY(-2px); /* Elevación al pasar el mouse */
+}
+
+.producto img {
+    width: 100%;          /* Ocupa todo el ancho del contenedor */
+    height: 280px;        /* Fija una altura para mantener la proporción */
+    object-fit: cover;    /* Ajusta la imagen para cubrir el área sin deformarse */
+    border-radius: 4px;   /* Esquinas redondeadas para la imagen */
+}
+
+
+.producto h3 {
+    font-size: 16px; /* Tamaño de fuente reducido */
+    color: #107da2; /* Color del título */
+    margin: 10px 0; /* Espacio superior e inferior */
+}
+
+.producto p {
+    font-size: 14px; /* Tamaño de fuente ajustado */
+    color: #4c5d61; /* Color del texto de detalles */
+}
+
+.producto .precio {
+    font-weight: bold;
+    color: #82bbd4; /* Color del precio */
+}
+
+/* Estilo para los iconos de modificar y eliminar */
+.iconos {
+    position: absolute; /* Posicionar absolutamente dentro del producto */
+    top: 10px; /* Espacio desde la parte superior */
+    right: 10px; /* Espacio desde la derecha */
+    display: flex;
+    flex-direction: column; /* Apilar los iconos verticalmente */
+}
+
+.icono {
+    cursor: pointer;
+    margin-bottom: 5px; /* Espacio entre iconos */
+    transition: transform 0.3s; /* Transición suave para el efecto */
+    border-radius: 50%; /* Esquinas redondeadas para crear un círculo */
+    padding: 8px; /* Espaciado interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para el efecto de elevación */
+}
+
+/* Estilos específicos para los iconos */
+.icono.modificar {
+    background-color: #4CAF50; /* Verde para modificar */
+    color: white; /* Color del icono */
+}
+
+.icono.eliminar {
+    background-color: #F44336; /* Rojo para eliminar */
+    color: white; /* Color del icono */
+}
+
+.icono:hover {
+    transform: scale(1.1); /* Aumentar tamaño al pasar el mouse */
+}
+
+
+
+/* Modal */
+/* Estilos del modal */
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #d6e9ee; /* Color de fondo del modal */
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Ajustar ancho para pantallas pequeñas */
+    max-width: 400px; /* Limitar el tamaño máximo */
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra para un efecto más elevado */
+    overflow: hidden; /* Evitar desbordamiento */
+}
+
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* Eliminar márgenes innecesarios */
+}
+
+/* Mejorar la legibilidad de las etiquetas y campos */
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #107da2; /* Color de texto para etiquetas */
+}
+
+input[type="text"],
+textarea,
+select {
+    padding: 10px;
+    border: 1px solid #82bbd4; /* Borde del campo */
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    box-sizing: border-box; /* Incluir padding en el ancho total */
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #24546c; /* Color del borde al enfocar */
+    outline: none;
+}
+

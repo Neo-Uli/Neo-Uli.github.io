@@ -1,0 +1,139 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+/*para ocultar y mostrar preguntas*/
+.hidden {
+    display: none;
+}
+
+/* Estilos generales para el formulario */
+form {
+    width: 100%;
+    max-width: 1000px; /* Aumento del ancho máximo para más espacio lateral */
+    margin: 20px auto; /* Espaciado vertical para dar separación */
+    padding: 20px; /* Disminución del padding para mayor compacidad */
+    background-color: #f9f9f9; /* Fondo más claro para mayor suavidad */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;/**/
+}
+
+/* Estilo del título */
+h2 {
+    text-align: center;
+    color: #24546c; /* Color más armónico con la paleta */
+    font-size: 28px; /* Tamaño de fuente ajustado */
+    margin-bottom: 20px; /* Reducción de la separación inferior */
+    font-weight: 600; /* Mayor peso para destacar */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    border-bottom: 2px solid #82b8c8; /* Línea decorativa */
+    padding-bottom: 10px; /* Espacio debajo del título */
+}
+
+/* Estilos para las etiquetas */
+label {
+    display: block;
+    margin-bottom: 6px; /* Espaciado inferior ajustado */
+    font-weight: 500; /* Peso más ligero */
+    color: #333; /* Color más oscuro para mejor legibilidad */
+    font-size: 20px; /* Tamaño de fuente ligeramente reducido */
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 24px); /* Ajustar el ancho para espacio lateral */
+    padding: 10px; /* Espaciado interno ajustado */
+    margin-bottom: 15px; /* Espaciado inferior reducido */
+    border: 1px solid #d1d1d1; /* Color del borde más suave */
+    border-radius: 6px; /* Bordes más redondeados */
+    font-size: 18px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Estilos para el enfoque de los campos de entrada */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #82b8c8; /* Color del borde en el enfoque */
+    outline: none;
+    box-shadow: 0 0 8px rgba(130, 184, 200, 0.3); /* Sombra sutil en enfoque */
+}
+
+/* Estilos para checkboxes y radios */
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Estilos para el textarea */
+textarea {
+    resize: vertical;
+    min-height: 100px; /* Aumento de altura mínima */
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px; /* Aumento del padding para mayor comodidad */
+    background-color: #24546c; /* Color del botón */
+    color: white;
+    border: none;
+    border-radius: 6px; /* Bordes más redondeados */
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s; /* Transición suave */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button[type="submit"]:hover {
+    background-color: #82b8c8; /* Color más claro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Estilos para campos de entrada en solo lectura */
+input[readonly] {
+    background-color: #f5f5f5; /* Fondo más claro para campos de solo lectura */
+    cursor: not-allowed;
+}
+
+/* Estilos para labels junto a checkboxes y radios */
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    display: inline-block;
+    margin-right: 15px; /* Espacio más amplio */
+    font-weight: 400;
+    color: #555;
+}
+
+/* Espaciados para etiquetas específicas */
+label[for="metros_interior"],
+label[for="metros_exterior"],
+label[for="notas"] {
+    margin-top: 15px; /* Espaciado superior ajustado */
+}
+
+/* Media query para adaptabilidad */
+@media (max-width: 768px) {
+    form {
+        padding: 15px; /* Ajustar el padding en pantallas más pequeñas */
+    }
+
+    h2 {
+        font-size: 26px; /* Tamaño de fuente del título ajustado */
+    }
+
+    button[type="submit"] {
+        font-size: 16px; /* Tamaño de fuente del botón ajustado */
+    }
+}

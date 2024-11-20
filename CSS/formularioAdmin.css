@@ -1,0 +1,452 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+/*################################################################################################*/
+/*Formulario de cotizacion*/
+/* Estilos generales para las listas */
+.product-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-list-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    border: 1px solid #d6e9ee;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    transition: background-color 0.3s, box-shadow 0.3s ease;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    width: 100%; /* Ancho dinámico que ocupa todo el contenedor */
+}
+
+.product-list-item:hover {
+    background-color: #d6e9ee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-list-item img {
+    width: 50px;
+    margin-right: 12px;
+    border-radius: 4px;
+}
+
+.product-list-item.selected {
+    background-color: #7dc8e3;
+    border-color: #107da2;
+}
+
+/* Estilo para el contenedor de la lista */
+.accordion {
+    background-color: #fdfdfd;
+    border: 1px solid #d6e9ee;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    width: 99%;
+}
+
+.accordion-header {
+    padding: 12px;
+    cursor: pointer;
+    background-color: #107da2;
+    color: white;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+    width: 97%;
+}
+
+.accordion-header:hover {
+    background-color: #24546c;
+}
+
+.accordion-content {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    padding: 0 12px;
+    background-color: #f9fbfc;
+}
+
+.accordion.open .accordion-content {
+    display: block;
+    max-height: 400px;
+    padding-top: 10px;
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+    display: none;
+}
+
+/* Estilo del formulario */
+form {
+    width: 90%; /* Ajustar al 90% del ancho de la pantalla */
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #23444d;
+    font-size: 16px;
+}
+
+/* Inputs */
+input[type="number"], input[type="text"], select {
+    width: 97%; /* Ancho dinámico */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d6e9ee;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #4c5d61;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fdfdfd;
+}
+
+input[type="number"]:focus, input[type="text"]:focus, select:focus {
+    border-color: #107da2;
+    outline: none;
+    box-shadow: 0 0 6px rgba(16, 125, 162, 0.3);
+}
+
+/* Ajustes para que el formulario sea más proporcional */
+.two-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.two-column div {
+    width: 48%;
+}
+
+/* Botón */
+button {
+    width: 99%;
+    padding: 12px;
+    background-color: #107da2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #24546c;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes de los contenedores */
+#interiorQuestions, #exteriorQuestions {
+    margin-top: 15px;
+}
+
+#cotizacionForm div {
+    margin-bottom: 15px;
+}
+
+/* Estilos responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+    form {
+        padding: 10px;
+        width: 95%;
+    }
+
+    .two-column {
+        flex-direction: column;
+    }
+
+    .two-column div {
+        width: 100%;
+    }
+
+    .product-list-item {
+        padding: 8px;
+    }
+
+    .accordion-header {
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px;
+    }
+}
+
+/*################################################################################################*/
+/* Cotización */
+
+/* Cotización */
+/* Estilos generales */
+
+/* Estilo para el contenedor principal de la cotización */
+.cotizacion-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 30px; /* Aumentar el padding para más espacio interno */
+    max-width: 900px; /* Ajustar para hacerlo más ancho */
+    margin: 20px auto; /* Añadir margen superior para separar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Más sombra para darle profundidad */
+}
+
+/* Título de la cotización */
+.cotizacion-titulo {
+    text-align: center;
+    font-size: 26px; /* Tamaño de fuente más grande */
+    font-weight: bold;
+    color: #0078D7;
+    margin-bottom: 25px;
+}
+
+/* Sección de detalles de la cotización */
+.cotizacion-detalles {
+    margin-bottom: 25px;
+}
+
+.cotizacion-detalles h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.cotizacion-detalles p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6; /* Mayor espacio entre líneas */
+    padding-left: 15px; /* Aumentar el padding para separar el texto */
+    border-left: 4px solid #0078D7; /* Resaltar más la línea */
+}
+
+.cotizacion-detalles strong {
+    color: #0078D7;
+}
+
+/* Ocultar el contenedor */
+.hidden {
+    display: none;
+}
+
+/* Contenedor del encabezado */
+.header-cotizacion {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Estilo para la imagen del encabezado */
+.header-image {
+    width: 100%;
+    height: auto; /* Mantener la proporción de la imagen */
+    max-width: 900px; /* Asegurar que no exceda el contenedor */
+    margin: 0 auto; /* Centrar la imagen */
+}
+
+/* Contenedor del pie de página */
+.footer-container {
+    width: 100%;
+    position: relative;
+    text-align: left;
+    margin-top: 30px;
+}
+
+/* Imagen que cubre dos terceras partes del pie de página */
+.footer-image {
+    width: 66.66%;
+    height: auto;
+    float: left;
+    margin-top: 10px; /* Añadir espacio arriba para separarla */
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid #dddddd;
+}
+
+th, td {
+    padding: 14px;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+td {
+    background-color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+table tbody tr td:nth-child(2),
+table tbody tr td:nth-child(3),
+table tbody tr td:nth-child(4) {
+    text-align: right;
+}
+
+table tbody tr td:nth-child(1) {
+    font-weight: bold;
+}
+
+/* Opcional: estilo para hover en filas */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+/* Botones */
+/* Botón de regresar */
+.boton-regresar {
+    padding: 12px 25px;
+    background-color: #0078D7;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.boton-regresar:hover {
+    background-color: #005bb5;
+}
+
+/* Contenedor de botones */
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 300px;
+    margin-bottom: 40px; /* Espacio entre los botones y el pie de página */
+}
+
+/* Estilos generales para botones */
+button.btn {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo del botón para generar PDF */
+button.btn-confirm {
+    background-color: #28a745;
+}
+
+button.btn-confirm:hover {
+    background-color: #218838;
+}
+
+
+/* Estilos de impresión */
+@media print {
+    /* Eliminar cualquier margen y padding del body */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ajustar el contenedor de la cotización para ocupar todo el ancho de la página */
+    .cotizacion-container {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        max-width: 100%; /* Elimina cualquier límite de ancho */
+        margin: 0; /* Elimina el margen automático */
+        padding: 0; /* Sin relleno */
+        border: none; /* Elimina cualquier borde */
+        box-shadow: none; /* Elimina la sombra para la impresión */
+    }
+
+    /* Ajustar la imagen del encabezado para ocupar todo el ancho */
+    .header-image {
+        width: 100%;
+        height: auto; /* Mantiene la proporción correcta */
+    }
+
+    /* Ajustar la imagen del pie de página para ocupar todo el ancho */
+    .footer-image {
+        width: 100%;
+        height: auto; /* Mantiene la proporción correcta */
+        float: none; /* Asegurar que no flote durante la impresión */
+    }
+
+    /* Asegurar que las tablas ocupen todo el ancho disponible */
+    table {
+        width: 100%;
+        font-size: 14px; /* Tamaño de fuente más pequeño para ajustar al PDF */
+    }
+
+    /* Ajustar los márgenes y paddings del contenedor del pie de página */
+    .footer-container {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ajustes adicionales para el botón */
+    .button-group {
+        display: none; /* Ocultar los botones durante la impresión */
+    }
+
+    /* Eliminar cualquier gap entre las secciones */
+    .cliente-fecha, .cotizacion-detalles {
+        margin-bottom: 0;
+        padding: 0;
+    }
+}

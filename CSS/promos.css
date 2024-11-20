@@ -1,0 +1,256 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilo para el título */
+.titulo {
+    font-size: 20px; /* Tamaño de fuente más grande */
+    color: #24546c; /* Color que combina con el esquema del calendario */
+    text-align: center; /* Centrar el título */
+    font-weight: bold; /* Negrita para destacar */
+    margin-top: 20px; /* Espaciado superior */
+    margin-bottom: 20px; /* Espaciado inferior */
+    letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    border-bottom: 2px solid #82b8c8; /* Línea decorativa debajo */
+    padding-bottom: 10px; /* Espacio debajo del título */
+    max-width: 85%; /* Ajustar el ancho máximo */
+    margin-left: auto;
+    margin-right: auto; /* Centrar horizontalmente */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    background-color: #d6e9ee; /* Fondo suave que coincide con el calendario */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px 0; /* Espaciado interno */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilos Modal y Formulario de promociones */
+/* Estilos para el modal */
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    z-index: 1; /* Mostrar por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(36, 84, 108, 0.6); /* Fondo semi-transparente acorde a la paleta */
+  }
+  
+  /* Contenido del modal */
+  .modal-content {
+    background-color: #d6e9ee; /* Fondo suave de la ventana modal */
+    margin: 4% auto; /* Centrando el contenido */
+    padding: 20px;
+    border: 1px solid #446464; /* Borde acorde a la paleta */
+    width: 80%;
+    max-width: 500px; /* Limitar el ancho máximo */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  /* Botón de cerrar */
+  .close {
+    color: #23444d;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #107da2; /* Cambiar color al pasar el ratón */
+    text-decoration: none;
+  }
+  
+  /* Estilo para el botón de agregar promoción */
+  #agregar-promocion-btn {
+    background-color: #107da2; /* Color principal del botón */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 15px; /* Añadir margen alrededor del botón */
+    display: flex; /* Usar flexbox para alinear el icono y el texto */
+    align-items: center; /* Centrar verticalmente */
+  }
+  
+  #agregar-promocion-btn i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+    font-size: 20px; /* Tamaño del icono */
+  }
+  
+  
+  #agregar-promocion-btn:hover {
+    background-color: #82bbd4; /* Cambia de color al pasar el ratón */
+  }
+  
+  /* Estilos para el formulario */
+  #formulario-promo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #formulario-promo label {
+    font-weight: bold;
+    color: #23444d;
+    margin-bottom: 8px;
+  }
+  
+  #formulario-promo input[type="text"],
+  #formulario-promo input[type="file"] {
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #82b8c8;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f4f7f9; /* Fondo claro para los inputs */
+  }
+  
+  #formulario-promo input[type="file"] {
+    padding: 5px;
+  }
+  
+  #guardar {
+    background-color: #107da2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #guardar:hover {
+    background-color: #82bbd4;
+  }
+  
+  /* Sombra suave al formulario */
+  .modal-content {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Estilos Catalogo*/
+
+  /* Contenedor de promociones estilo catálogo */
+#promociones-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Configura columnas automáticas */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Tarjeta individual de promoción */
+  .promo-card {
+    background-color: #f4f7f9; /* Fondo claro */
+    border: 1px solid #446464; /* Borde suave */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.2s ease;
+  }
+  
+  /* Hover para dar efecto de zoom */
+  .promo-card:hover {
+    transform: translateY(-5px); /* Efecto de levantar la tarjeta */
+  }
+  
+/* Miniatura de la imagen promocional */
+.promo-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain; /* Cambiar a 'cover' si prefieres llenar el contenedor */
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #d6e9ee; /* Fondo para cuando la imagen no llena completamente */
+  }
+  
+  
+  /* Información de la promoción */
+  .promo-info {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #23444d;
+    font-weight: bold;
+  }
+  
+  /* Botón de eliminar */
+  .promo-card button {
+    background-color: #107da2;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .promo-card button:hover {
+    background-color: #82bbd4; /* Color de hover */
+  }
+  
+  /* Ventana modal para ampliar imagen */
+  .modal-imagen {
+    display: none; /* Inicialmente oculto */
+    position: fixed; /* Posición fija */
+    z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(130, 187, 212, 0.9); /* Fondo semi-transparente acorde a la paleta */
+    display: flex; /* Usar flexbox para el contenido */
+    flex-direction: column; /* Colocar los elementos en columna */
+    align-items: center; /* Centrarlos horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+  }
+  
+  .modal-contentIMG {
+    background-color: #d6e9ee; /* Fondo del modal usando un color de la paleta */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    max-width: 1000px; /* Ancho máximo ajustado */
+    max-height: 80%; /* Altura máxima */
+    overflow: hidden; /* Evitar el desplazamiento */
+    display: flex; /* Usar flexbox para el contenido */
+    flex-direction: column; /* Colocar los elementos en columna */
+    align-items: center; /* Centrarlos horizontalmente */
+  }  
+  
+  .modal-title {
+    font-size: 20px; /* Tamaño de la fuente del título ajustado */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 10px; /* Espaciado inferior ajustado */
+    text-align: center; /* Centrar texto */
+  }
+  
+  .modal-imagen img {
+    max-width: 100%; /* Ajustar la imagen al ancho del contenedor */
+    max-height: 400px; /* Ajustar la altura máxima de la imagen */
+    border-radius: 4px; /* Bordes redondeados para la imagen */
+    object-fit: contain; /* Asegurarse de que la imagen se ajuste sin deformarse */
+  }
+  
+  .close-modal {
+    position: absolute; /* Posición absoluta para el botón de cerrar */
+    top: 10px; /* Espacio desde la parte superior */
+    right: 15px; /* Espacio desde la derecha */
+    font-size: 30px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+  }
+  

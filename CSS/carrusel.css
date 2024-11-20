@@ -1,0 +1,160 @@
+/* Estilo para el título */
+.titulo {
+    font-size: 24px; /* Tamaño de fuente más grande */
+    color: #24546c; /* Color que combina con el esquema del calendario */
+    text-align: center; /* Centrar el título */
+    font-weight: bold; /* Negrita para destacar */
+    margin-top: 0px; /* Espaciado superior */
+    margin-bottom: 20px; /* Espaciado inferior */
+    letter-spacing: 1px; /* Espaciado entre letras para mayor legibilidad */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    border-bottom: 2px solid #82b8c8; /* Línea decorativa debajo */
+    padding-bottom: 10px; /* Espacio debajo del título */
+    width: 85%; /* Ajustar el ancho a un porcentaje específico */
+    margin-left: auto;
+    margin-right: auto; /* Centrar horizontalmente */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    background-color: #d6e9ee; /* Fondo suave que coincide con el calendario */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 25px 0; /* Aumentar el espaciado interno para hacer el contenedor más largo */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+.bod {
+    height: 90vh; /* Mantener el 100% de la altura de la ventana */
+    display: flex;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    background-color: #d6e9ee; /* Fondo suave que coincide con el esquema de colores */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados para suavizar el contenedor */
+    /*box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  Sombra para darle profundidad */
+}
+
+.container-carousel {
+    position: relative;
+    width: 80%; /* Aumentar el ancho del carrusel al 80% del contenedor padre */
+    max-width: 800px; /* Establecer un ancho máximo para mantener la estética en pantallas grandes */
+    height: 450px; /* Aumentar la altura del carrusel */
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto; /* Centrar el carrusel */
+}
+
+.carruseles {
+    width: 300%; /* Modificar para base de datos */
+    height: 100%;
+    display: flex;
+}
+
+.slider-section {
+    width: calc(100% / 3); /* Modificar para base de datos */
+    height: 100%;
+}
+
+.slider-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mantener la imagen completa dentro del contenedor */
+    border-radius: 15px;
+    transition: transform 0.3s; /* Transición suave para zoom */
+}
+
+.slider-section img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.btn-left,
+.btn-right {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #ffffff81;
+    transform: translate(0, -50%);
+    transition: .5s ease;
+    user-select: none;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+    background-color: #333333d4;
+    color: #fff;
+}
+
+.btn-left {
+    left: 20px; /* Ajustar margen izquierdo */
+}
+
+.btn-right {
+    right: 20px; /* Ajustar margen derecho */
+}
+
+
+/*////////////////////////////////////*/
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(36, 68, 77, 0.9); /* Color de fondo más oscuro acorde con la paleta */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que se muestre sobre otros elementos */
+}
+
+.popup-content {
+    background-color: #d6e9ee; /* Color de fondo del contenido ajustado a la paleta */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno aumentado para mayor comodidad */
+    max-width: 750px; /* Ancho máximo más grande para un mejor aspecto */
+    width: 90%; /* Ancho adaptativo */
+    text-align: center; /* Centrar texto */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más suave para dar profundidad */
+}
+
+.popup-content h2 {
+    font-size: 20px; /* Tamaño de la fuente del título aumentado */
+    margin-bottom: 10px; /* Espaciado inferior del título aumentado */
+    color: #107da2; /* Color del título acorde a la paleta */
+}
+
+.popup-content img {
+    max-width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    margin-bottom: 10px; /* Espaciado inferior de la imagen aumentado */
+}
+
+.whatsapp-button {
+    display: inline-block; /* Para que se ajuste correctamente */
+    background-color: #25D366; /* Color del botón */
+    color: white; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno del botón aumentado */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s; /* Transición suave */
+    font-size: 16px; /* Tamaño de fuente del botón aumentado */
+    border: 1px solid #4c5d61; /* Borde que combina con la paleta */
+}
+
+.whatsapp-button:hover {
+    background-color: #1EBEA5; /* Color del botón al pasar el ratón */
+}

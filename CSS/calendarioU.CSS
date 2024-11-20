@@ -1,0 +1,202 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e9ee;
+    margin: 0;
+    padding: 0;
+}
+
+/* Para ocultar y mostrar preguntas */
+.hidden {
+    display: none;
+}
+
+/* Estilos generales para el formulario */
+form {
+    width: 100%;
+    max-width: 800px; /* Ancho máximo aumentado */
+    margin: 20px auto; /* Centrado automático */
+    padding: 20px; /* Padding reducido */
+    background-color: #f9f9f9; /* Fondo más claro para mayor suavidad */
+    border-radius: 8px; /* Bordes más redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden; /* Para evitar que el contenido se salga */
+}
+
+/* Estilo del título */
+h2 {
+    text-align: center;
+    color: #24546c; /* Color más armónico con la paleta */
+    font-size: 24px; /* Tamaño de fuente reducido */
+    margin-bottom: 15px; /* Reducción de la separación inferior */
+    font-weight: 600; /* Mayor peso para destacar */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    border-bottom: 2px solid #82b8c8; /* Línea decorativa */
+    padding-bottom: 5px; /* Espacio debajo del título reducido */
+}
+
+/* Estilos para las etiquetas */
+label {
+    display: block;
+    margin-bottom: 5px; /* Espaciado inferior ajustado */
+    font-weight: 500; /* Peso más ligero */
+    color: #333; /* Color más oscuro para mejor legibilidad */
+    font-size: 18px; /* Tamaño de fuente reducido */
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 20px); /* Ajustar el ancho para espacio lateral */
+    padding: 8px; /* Espaciado interno reducido */
+    margin-bottom: 10px; /* Espaciado inferior reducido */
+    border: 1px solid #d1d1d1; /* Color del borde más suave */
+    border-radius: 4px; /* Bordes más redondeados */
+    font-size: 18px; /* Tamaño de fuente reducido */
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Estilos para el enfoque de los campos de entrada */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #82b8c8; /* Color del borde en el enfoque */
+    outline: none;
+    box-shadow: 0 0 8px rgba(130, 184, 200, 0.3); /* Sombra sutil en enfoque */
+}
+
+/* Estilos para checkboxes y radios */
+input[type="radio"],
+input[type="checkbox"] {
+    position: relative; /* Posición relativa para personalizar */
+    cursor: pointer;
+    margin-right: 8px; /* Espaciado reducido */
+}
+
+/* Estilos personalizados para checkboxes */
+input[type="checkbox"]:before {
+    content: '';
+    width: 16px; /* Tamaño reducido */
+    height: 16px; /* Tamaño reducido */
+    border: 2px solid #82b8c8; /* Color del borde */
+    border-radius: 4px; /* Bordes redondeados */
+    display: inline-block;
+    vertical-align: middle; /* Alineación vertical */
+    margin-right: 8px; /* Espacio entre checkbox y label */
+    transition: background-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked:before {
+    background-color: #82b8c8; /* Color de fondo cuando está marcado */
+}
+
+/* Estilos para el textarea */
+textarea {
+    resize: vertical;
+    min-height: 80px; /* Altura mínima reducida */
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px; /* Padding reducido */
+    background-color: #24546c; /* Color del botón */
+    color: white;
+    border: none;
+    border-radius: 4px; /* Bordes más redondeados */
+    font-size: 18px; /* Tamaño de fuente reducido */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s; /* Transición suave */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button[type="submit"]:hover {
+    background-color: #82b8c8; /* Color más claro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Estilos para campos de entrada en solo lectura */
+input[readonly] {
+    background-color: #f5f5f5; /* Fondo más claro para campos de solo lectura */
+    cursor: not-allowed;
+}
+
+/* Estilos para labels junto a checkboxes y radios */
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    display: inline-block;
+    margin-right: 12px; /* Espacio más reducido */
+    font-weight: 400;
+    color: #555;
+}
+
+/* Espaciados para etiquetas específicas */
+label[for="metros_interior"],
+label[for="metros_exterior"],
+label[for="notas"] {
+    margin-top: 10px; /* Espaciado superior ajustado */
+}
+
+/* Media query para adaptabilidad */
+@media (max-width: 768px) {
+    .calendar-container {
+        max-width: 90%; /* Ancho más flexible en pantallas pequeñas */
+    }
+
+    .calendar-day {
+        font-size: 12px; /* Tamaño de fuente aún más pequeño */
+        padding: 4px; /* Espaciado interno aún más reducido */
+    }
+
+    form {
+        padding: 15px; /* Ajustar el padding en pantallas más pequeñas */
+    }
+
+    h2 {
+        font-size: 22px; /* Tamaño de fuente del título ajustado */
+    }
+
+    button[type="submit"] {
+        font-size: 12px; /* Tamaño de fuente del botón ajustado */
+    }
+}
+
+/* Estilos para el contenedor del calendario */
+.calendar-container {
+    max-width: 400px; /* Ancho máximo reducido */
+    margin: 20px auto; /* Centrado */
+    padding: 8px; /* Espaciado interno reducido */
+    background-color: #f9f9f9; /* Fondo claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+/* Estilo del calendario */
+.calendar {
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Ajustar automáticamente el alto */
+    font-size: 12px; /* Tamaño de fuente reducido */
+}
+
+/* Estilos para los días del calendario */
+.calendar-day {
+    width: 14.28%; /* 7 días de la semana */
+    padding: 4px; /* Espaciado interno reducido */
+    text-align: center; /* Centrar texto */
+}
+
+/* Estilo de los días seleccionados */
+.calendar-day.selected {
+    background-color: #82b8c8; /* Color para días seleccionados */
+    color: white; /* Texto en blanco para mejor contraste */
+}
+
+/* Espaciado y estilo del encabezado del calendario */
+.calendar-header {
+    font-size: 14px; /* Tamaño de fuente del encabezado reducido */
+    padding: 8px 0; /* Espaciado interno reducido */
+}

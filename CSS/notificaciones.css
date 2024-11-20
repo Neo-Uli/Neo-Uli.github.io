@@ -1,0 +1,78 @@
+/* Estilos del ícono de notificaciones */
+.notification-icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 40px; /* Aumenta el margen izquierdo para alejarlo del borde */
+    margin-right: 20px; /* Espacio entre el ícono y el borde derecho */
+    font-size: 28px;
+    color: #4c5d61; /* Color del ícono */
+}
+
+/* Estilos para el dropdown de notificaciones */
+.notification-dropdown {
+    display: none;
+    position: absolute;
+    left: 80px; /* Alineado a la izquierda */
+    top: 100px;
+    background-color: #d6e9ee; /* Fondo claro para el dropdown */
+    border: 1px solid #107da2; /* Bordes con color primario */
+    padding: 15px; /* Espaciado interno */
+    width: 320px; /* Ancho del contenedor */
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    border-radius: 8px; /* Bordes redondeados */
+    z-index: 1000;
+}
+
+/* Mostrar el dropdown */
+.notification-dropdown.show {
+    display: block;
+}
+
+/* Estilos para las notificaciones */
+.notification-item {
+    background-color: #ffffff; /* Fondo blanco para las notificaciones */
+    border: 1px solid #82bbd4; /* Borde más suave */
+    margin: 10px 0; /* Margen entre notificaciones */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Transición suave para hover */
+}
+
+.notification-item:hover {
+    background-color: #82b8c8; /* Color de fondo al pasar el ratón */
+}
+
+.notification-item span {
+    cursor: pointer;
+    color: #24546c; /* Color de texto */
+    font-weight: bold; /* Negrita para el texto */
+}
+
+/* Estilos del ícono dentro de las notificaciones */
+.notification-item i {
+    margin-right: 10px; /* Espacio entre ícono y texto */
+    font-size: 22px; /* Tamaño del ícono */
+    color: #107da2; /* Color del ícono */
+}
+
+/* Estilos para el botón de eliminación */
+.notification-item .delete-btn {
+    background-color: #ff4d4d; /* Color de fondo rojo */
+    color: white;
+    border: none;
+    padding: 6px 12px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para hover */
+}
+
+.notification-item .delete-btn:hover {
+    background-color: #ff1a1a; /* Color al pasar el ratón */
+}
